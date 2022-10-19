@@ -174,7 +174,7 @@ resource "azapi_resource" "aca" {
               },
               {
                 name      = "VTT_LISTENHOST"
-                secretRef = "0.0.0.0"
+                value     = "0.0.0.0"
               }
             ]
             resources = {
