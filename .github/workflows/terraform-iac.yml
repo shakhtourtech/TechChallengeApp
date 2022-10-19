@@ -2,7 +2,7 @@ name: 'Create Infra with Terraform'
 
 on:
   push:
-    branches: [ main ]
+    branches: [ master ]
     paths: 
       - '.github/workflows/terraform-iac.yml'
       - 'solution/terraform/*'
