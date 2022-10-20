@@ -5,7 +5,7 @@ on:
     branches: [ master ]
     paths: 
       - '.github/workflows/terraform-iac.yml'
-      - 'solution/terraform/*'
+      - 'solution/terraform/**.tf'
   workflow_dispatch:
   
 env:
