@@ -65,4 +65,4 @@ No modules.
 
 | Name | Description |
 |------|-------------|
-| <a name="output_public_ip"></a> [public\_ip](#output\_public\_ip) | A public ip address where application can be browsed |
+| <a name="output_public_ip_dns_name"></a> [public\_ip\_dns\_name](#output\_public\_ip\_dns\_name) | A public ip address where application can be browsed |
