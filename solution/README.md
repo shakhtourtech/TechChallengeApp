@@ -39,7 +39,11 @@ Copy the JSON written to the screen to your clipboard.
 | DB_USER| username of PostgreSQL DB |
 | DB_PASSWORD| password of PostgreSQL DB|
 
+## Azure Resources
 
+The following picture shows the resources deployed by the terraform script target resource group using Github Actions worklfow
+
+![Azure Resources](docs/images/azure-resources.png)
 ## High level Architecture
 
 ![High level Architecture](docs/images/architecture.png)
