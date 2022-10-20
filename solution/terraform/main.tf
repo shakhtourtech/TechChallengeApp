@@ -155,9 +155,9 @@ resource "azapi_resource" "aca" {
       template = {
         containers = [
           {
-            name  = "main"
-            image = var.container_image
-            args = ["-c", "./TechChallengeApp serve"]
+            name    = "main"
+            image   = var.container_image
+            args    = ["-c", "./TechChallengeApp serve"]
             command = ["sh"]
             env = [
               {
@@ -173,8 +173,8 @@ resource "azapi_resource" "aca" {
                 secretRef = "db-host"
               },
               {
-                name      = "VTT_LISTENHOST"
-                value     = "0.0.0.0"
+                name  = "VTT_LISTENHOST"
+                value = "0.0.0.0"
               }
             ]
             resources = {
