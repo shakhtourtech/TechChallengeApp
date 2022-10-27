@@ -157,7 +157,7 @@ resource "azapi_resource" "aca" {
           {
             name    = "main"
             image   = var.container_image
-            args    = ["-c", "./TechChallengeApp serve"]
+            args    = ["-c", "./TechChallengeApp updatedb -s; ./TechChallengeApp serve"]
             command = ["sh"]
             env = [
               {
