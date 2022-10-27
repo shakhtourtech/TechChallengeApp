@@ -5,6 +5,7 @@ locals {
   gateway_ip_configuration       = "servian-gateway-ipconfig"
   frontend_ip_configuration_name = "servian-ip-config"
   frontend_port_name             = "servian-fe"
+  probe_name                     = "healthcheck-probe"
   tags                           = var.tags
 }
 
@@ -325,6 +326,7 @@ resource "azurerm_application_gateway" "appgw" {
     protocol              = "Https"
     request_timeout       = 60
     host_name             = jsondecode(azapi_resource.aca.output).properties.configuration.ingress.fqdn
+    probe_name            = local.probe_name
   }
 
   http_listener {
@@ -343,6 +345,19 @@ resource "azurerm_application_gateway" "appgw" {
     backend_http_settings_name = local.http_setting_name
   }
 
+   probe {
+    name = local.probe_name
+    path = "/healthcheck/"
+    interval = 30
+    timeout = 30
+    unhealthy_threshold = 3
+    protocol = "Https"
+    pick_host_name_from_backend_http_settings = true
+    match {
+      body = "OK"
+      status_code = ["200"]
+    }
+  }
   lifecycle {
     ignore_changes = [
       tags

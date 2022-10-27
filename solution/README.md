@@ -68,7 +68,7 @@ The following picture shows the resources deployed by the terraform script targe
 
 #### Part 3: Observability
 
-3a. Application Gateway includes a **healthy host count** metric that you can use as a liveness probe for Azure container apps, given that sample golang api should provide endpoints to support liveness or readiness probes
+3a. Application Gateway includes a **healthy host count** metric that you can use as a liveness probe for Azure container apps, given that sample golang api provides a health check endpoint which has been leveraged on terraform script
 
 3b. Azure Log Analytics is used in containers apps for this solution to collect logs. For more other loggins options check this [link](https://learn.microsoft.com/en-us/azure/container-apps/log-options).
 
@@ -96,3 +96,5 @@ Alternatives and other considarations including Azure Well Architecture design a
 ### Know Issues
 
 Azure PostgreSQL using username as {user-name}@{servername} and code in file **pqdb.go** expecting owner with username without @ character, so this can be resolved by either removing owner or adding another configuration entry.
+[**UPDATE**]
+It can be resolved by passing these arguments to app container which is already used in terraform script ["-c", "./TechChallengeApp updatedb -s; ./TechChallengeApp serve"]
